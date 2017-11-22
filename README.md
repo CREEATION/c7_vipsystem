@@ -1,6 +1,7 @@
 # LPC VIP Privileges
 ## Features
 - Fully customizable gunmenu via ini file
+- Custom gun-presets, if configured
 - Enable gunmenu after round **X** (doesn't count draw-rounds)
 - Extra HP & money for kills *(more HP/money for headshots, configurable)*
 - Show damage dealt & recieved on the HUD near crosshair
