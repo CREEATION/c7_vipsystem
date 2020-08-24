@@ -1,0 +1,8 @@
+/**/*/amxmod_compat
+amxmodx/logs
+amxmodx/configs/*.cfg
+amxmodx/configs/*.ini
+amxmodx/scripting/testsuite
+amxmodx/scripting/amxx*
+amxmodx/scripting/compile*
+amxmodx/scripting/include
