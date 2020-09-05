@@ -1,3 +1,4 @@
+# ignore compiler, logs and possible symlinks
 /**/*/amxmod_compat
 amxmodx/logs
 amxmodx/configs/*.cfg
@@ -5,4 +6,7 @@ amxmodx/configs/*.ini
 amxmodx/scripting/testsuite
 amxmodx/scripting/amxx*
 amxmodx/scripting/compile*
-amxmodx/scripting/include
+amxmodx/scripting/include/*.inc
+
+# don't ignore plugin files <3
+!amxmodx/scripting/include/c7_vipsystem
