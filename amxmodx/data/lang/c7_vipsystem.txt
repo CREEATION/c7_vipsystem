@@ -1,42 +1,23 @@
--- [colors and helpers]
--- menu:
---   \d = default
---   \r = red
---   \y = yellow
---   \w = white
---   \n = new line
-----
--- chat:
---   ^1 = yellow
---   ^2 = gray
---   ^3 = default
---   ^4 = green
-----
--- hud:
---   ^r = new line
-
 [en]
 GUNMENU_TITLE = \d[\yVIP\d] \wGunmenu
 GUNMENU_PRIMARY_WEAPON_TITLE = \yPrimary Weapon\r
 GUNMENU_SECONDARY_WEAPON_TITLE = \ySecondary Weapon
-
-CHAT_PREFIX = ^4[VIP]^3 
-HUD_PREFIX = 
-
-CHAT_MSG_SETUP_RECIEVED = %sYou got ^1%s ^4+ ^1%s^3 and full equipment
-CHAT_MSG_SETUP_SPAWN = %sYou will spawn with ^1%s ^4+ ^1%s^3 and full equipment
-CHAT_MSG_SETUP_SAVED = %sSay ^4/guns ^3to select a new setup
-
-CHAT_MSG_GUNMENU_RESET = %sGunmenu will show again next round
-CHAT_MSG_GUNMENU_DISABLED = %sGunmenu disabled. Say ^4/guns ^3to enable it again
-
-HUD_MSG_BUYTIME_PASSED = %s%d seconds have passed.^rGunmenu will show again next round
-HUD_MSG_BUYTIME_LEFT = %sGunmenu will close in %d seconds^ror when leaving the buyzone
-
-CHAT_MSG_NEED_VIP = %sYou need to be VIP to see the gunmenu (^1say ^4/wantvip^3)
-CHAT_MSG_ROUND_NOT_REACHED = %sYou need to wait ^1%d %s ^3to see the gunmenu
-
-HUD_MSG_AWP_ALL = [ AWP is restricted for all players ]
-HUD_MSG_AWP_VIP = [ AWP is only available for VIPs ]
-HUD_MSG_AUTOSNIPER_ALL = [ Auto-Sniper is restricted for all players ]
-HUD_MSG_AUTOSNIPER_VIP = [ Auto-Sniper is only available for VIPs ]
+GUNMENU_SELECT_WEAPONS = \ySelect Weapons"
+GUNMENU_PREVIOUS_SETUP = Previous Setup%s
+GUNMENU_PREVIOUS_SETUP_SAVE = Previous \d[\r+ Save\d]
+GUNMENU_DISABLE = \rDisable Gunmenu
+GUNMENU_CLOSE = Close
+CHAT_PREFIX = ^4[VIP]^3
+CHAT_MSG_SETUP_RECIEVED = You got ^1%s ^4+ ^1%s^3 and full equipment
+CHAT_MSG_SETUP_SPAWN = You will spawn with ^1%s ^4+ ^1%s^3 and full equipment
+CHAT_MSG_SETUP_SAVED = Say ^4/guns ^3to select a new setup
+CHAT_MSG_GUNMENU_RESET = Gunmenu will show again next round
+CHAT_MSG_GUNMENU_DISABLED = Gunmenu disabled. Say ^4/guns ^3to enable it again
+CHAT_MSG_NEED_VIP = You need to be VIP to see the gunmenu (^1say ^4/wantvip^3)
+CHAT_MSG_ROUND_NOT_REACHED = You need to wait ^1%d %s ^3to see the gunmenu
+HUD_MSG_BUYTIME_PASSED = %d seconds have passed.^nGunmenu will show again next round
+HUD_MSG_BUYTIME_LEFT = Gunmenu will close in %d seconds^nor when leaving the buyzone
+HUD_MSG_AWP_ALL = AWP is restricted for all players
+HUD_MSG_AWP_VIP = AWP is only available for VIPs
+HUD_MSG_AUTOSNIPER_ALL = Auto-Sniper is restricted for all players
+HUD_MSG_AUTOSNIPER_VIP = Auto-Sniper is only available for VIPs
