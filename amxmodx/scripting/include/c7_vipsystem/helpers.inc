@@ -3,7 +3,11 @@ public bool:is_user_vip(user_id) {
 
   get_pcvar_string(c7_vips_gm_flags, user_flags, charsmax(user_flags));
 
-  return is_user_connected(user_id) && (get_user_flags(user_id) & read_flags(user_flags));
+  return is_user(user_id) && (get_user_flags(user_id) & read_flags(user_flags));
+}
+
+public bool:is_user(user_id) {
+  return pev_valid(user_id) && !is_user_bot(user_id) && is_user_connected(user_id) && !is_user_hltv(user_id);
 }
 
 // @see https://forums.alliedmods.net/showpost.php?p=2039952&postcount=4

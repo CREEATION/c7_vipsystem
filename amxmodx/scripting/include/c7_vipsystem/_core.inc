@@ -39,7 +39,7 @@
 
 #include "../include/c7_vipsystem/events/_core.inc"
 #include "../include/c7_vipsystem/gunmenu/_core.inc"
-// #include "../include/c7_vipsystem/hud_damage/_core.inc"
+#include "../include/c7_vipsystem/hud/_core.inc"
 
 public plugin_init() {
   register_plugin(PLUGIN_NAME, PLUGIN_VERSION, PLUGIN_AUTHOR);
@@ -51,6 +51,11 @@ public plugin_init() {
   g_ServerSlots = get_maxplayers();
   g_ServerBuytime = get_pcvar_float(get_cvar_pointer("mp_buytime")) * 60.0;
   g_ServerFreezetime = get_pcvar_float(get_cvar_pointer("mp_freezetime"));
+  g_ServerFriendlyFire = get_pcvar_num(get_cvar_pointer("mp_friendlyfire"));
+
+  // setup hud messages
+  g_HudDmgReceived = CreateHudSyncObj();
+  g_HudDmgInflicted = CreateHudSyncObj();
 
   //- EVENTS
   // game events
@@ -60,6 +65,13 @@ public plugin_init() {
   register_event("HLTV", "event_round_start_buytime", "ac", "1=0", "2=0");
   register_logevent("event_round_start", 2, "1=Round_Start");
   register_logevent("event_round_end", 2, "1=Round_End");
+
+  // user events
+  RegisterHam(Ham_Spawn, "player", "event_user_spawn", 1);
+  RegisterHam(Ham_Killed, "player", "event_user_dies", 1);
+  RegisterHam(Ham_TakeDamage, "player", "event_user_receives_damage", 1);
+  register_event("ScreenFade", "event_user_flashed", "be", "4=255", "5=255", "6=255", "7>199");
+  register_message(get_user_msgid("StatusIcon"), "event_user_buyzone");
 }
 
 public plugin_precache() {}
