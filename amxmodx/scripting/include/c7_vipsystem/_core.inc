@@ -71,7 +71,8 @@ public plugin_init() {
   RegisterHam(Ham_Killed, "player", "event_user_dies", 1);
   RegisterHam(Ham_TakeDamage, "player", "event_user_receives_damage", 1);
   register_event("ScreenFade", "event_user_flashed", "be", "4=255", "5=255", "6=255", "7>199");
-  register_message(get_user_msgid("StatusIcon"), "event_user_buyzone");
+  register_event("StatusIcon", "event_user_inside_buyzone", "be", "1=1", "2=buyzone");
+  register_event("StatusIcon", "event_user_outside_buyzone", "be", "1=0", "2=buyzone");
 }
 
 public plugin_precache() {}

@@ -3,9 +3,11 @@ public event_user_spawn(user_id) {
     return HAM_HANDLED;
   }
 
+  #if defined DEBUG_EVENTS
+    client_print(0, print_chat, "> event_user_spawn [%d]", user_id);
+  #endif
+
   // give gunmenu setup
-  client_print(0, print_chat, "> event_user_spawn");
-  client_print(0, print_chat, "%d", user_id);
 
   return HAM_HANDLED;
 }
@@ -14,8 +16,9 @@ public event_user_dies(user_id, attacker_id) {
   // flash both screens if not bot
   // give hp/ap to attacker if vip
   // give money to attacker if vip
-  client_print(0, print_chat, "> event_user_dies");
-  client_print(0, print_chat, "%d, %d", user_id, attacker_id);
+  #if defined DEBUG_EVENTS
+    client_print(0, print_chat, "> event_user_dies [%d killed by %d]", user_id, attacker_id);
+  #endif
 
   return HAM_HANDLED;
 }
@@ -62,41 +65,35 @@ public event_user_flashed(user_id, Float:user_blind, Float:flash_duration, Float
     return HAM_HANDLED;
   }
 
+  #if defined DEBUG_EVENTS
+    client_print(0, print_chat, "> event_user_flashed [%d]", user_id);
+  #endif
+
   // get flash duration to prevent screen fade from removing flashed screen
-  client_print(0, print_chat, "> event_user_flashed");
-  client_print(0, print_chat, "%d, %f, %f, %f, %f",
-    user_id, user_blind, flash_duration, hold_duration, alpha);
   
   return HAM_HANDLED;
 }
 
-public event_user_buyzone(user_id) {
+public event_user_inside_buyzone(user_id) {
   if (!gunmenu_enabled_by_config() || !is_user_vip(user_id)) {
     return PLUGIN_HANDLED;
   }
 
-  // show/hide gunmenu depending on if in buytime
-  client_print(0, print_chat, "> event_user_buyzone");
-  client_print(0, print_chat, "%d", user_id);
+  #if defined DEBUG_EVENTS
+    client_print(0, print_chat, "user entered buyzone [%d]", user_id);
+  #endif
 
-  static status[8];
-  static bool:user_in_buyzone;
+  return PLUGIN_CONTINUE;
+}
 
-  get_msg_arg_string(2, status, 7);
-
-  // check if hud icon is "buyzone"
-  if (!equal(status, "buyzone")) {
-    return PLUGIN_CONTINUE;
+public event_user_outside_buyzone(user_id) {
+  if (!gunmenu_enabled_by_config() || !is_user_vip(user_id)) {
+    return PLUGIN_HANDLED;
   }
 
-  user_in_buyzone = bool:get_msg_arg_int(1);
-
-  // hide menu if user left buyzone
-  if (!user_in_buyzone) {
-    #if defined DEBUG_EVENTS
-      client_print(0, print_chat, "user left buyzone [%d]", user_id);
-    #endif
-  }
+  #if defined DEBUG_EVENTS
+    client_print(0, print_chat, "user left buyzone [%d]", user_id);
+  #endif
 
   return PLUGIN_CONTINUE;
 }
