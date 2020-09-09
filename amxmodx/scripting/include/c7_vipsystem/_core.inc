@@ -73,6 +73,8 @@ public plugin_init() {
   register_event("ScreenFade", "event_user_flashed", "be", "4=255", "5=255", "6=255", "7>199");
   register_event("StatusIcon", "event_user_inside_buyzone", "be", "1=1", "2=buyzone");
   register_event("StatusIcon", "event_user_outside_buyzone", "be", "1=0", "2=buyzone");
+
+  register_clcmd("gunmenutest", "gunmenu_display_main");
 }
 
 public plugin_precache() {}

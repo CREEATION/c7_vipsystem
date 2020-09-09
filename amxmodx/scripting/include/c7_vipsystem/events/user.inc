@@ -83,6 +83,8 @@ public event_user_inside_buyzone(user_id) {
     client_print(0, print_chat, "user entered buyzone [%d]", user_id);
   #endif
 
+  gunmenu_display_main(user_id);
+
   return PLUGIN_CONTINUE;
 }
 

@@ -1,6 +1,5 @@
-// #include "include/c7_vipsystem/gunmenu/tasks.inc"
-// #include "include/c7_vipsystem/gunmenu/menu.inc"
-// #include "include/c7_vipsystem/gunmenu/hud.inc"
+#include "include/c7_vipsystem/gunmenu/config.inc"
+#include "include/c7_vipsystem/gunmenu/menu.inc"
 
 public gunmenu_print_need_vip(user_id) {
   return client_print_color(

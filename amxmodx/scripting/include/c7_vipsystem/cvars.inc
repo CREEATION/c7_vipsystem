@@ -12,7 +12,11 @@ public plugin_cfg() {
   c7_vips_gm_show_nonvip_message = register_cvar("c7_vips_gm_show_nonvip_message", "1", FCVAR_DEFAULT);
   c7_vips_gm_flags = register_cvar("c7_vips_gm_flags", "t", FCVAR_DEFAULT);
 
-  //- LOAD CONFIGS
+  plugin_reload_configs();
+}
+
+public plugin_reload_configs() {
+  //- READ CONFIGS
   static configs_path[256];
   get_configsdir(configs_path, charsmax(configs_path));
 
